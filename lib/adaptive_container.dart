@@ -42,6 +42,7 @@ class AdaptiveContainer extends StatelessWidget {
               width: double.infinity,
               child: Scrollbar(
                 child: SingleChildScrollView(
+                  physics: ClampingScrollPhysics(),
                   child: Column(
                     children: [
                       for(var colList in content)...{
