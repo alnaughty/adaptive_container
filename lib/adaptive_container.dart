@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 
 class AdaptiveContainer extends StatelessWidget {
   final List<AdaptiveItem> children;
-  AdaptiveContainer({required this.children});
+  final ScrollPhysics physics;
+  AdaptiveContainer({required this.children, this.physics = const ClampingScrollPhysics()});
 
   List getContent(maxCount, List<AdaptiveItem> toCheck) {
     List result = [];
@@ -42,7 +43,7 @@ class AdaptiveContainer extends StatelessWidget {
               width: double.infinity,
               child: Scrollbar(
                 child: SingleChildScrollView(
-                  physics: ClampingScrollPhysics(),
+                  physics: physics,
                   child: Column(
                     children: [
                       for(var colList in content)...{
