@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AdaptiveItem {
-  final double height;
+  final double? height;
   final double? width;
   final Widget? content;
   final Color? bgColor;
-  AdaptiveItem({required this.height, this.content, this.bgColor = Colors.transparent, this.width});
+  AdaptiveItem({this.height, this.content, this.bgColor = Colors.transparent, this.width});
 }
 extension AdaptiveWidget on AdaptiveItem {
   Widget get asWidget => Container(
