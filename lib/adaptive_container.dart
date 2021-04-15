@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class AdaptiveContainer extends StatelessWidget {
   final List<AdaptiveItem> children;
-  AdaptiveContainer({@required this.children});
+  AdaptiveContainer({required this.children});
 
   List getContent(maxCount, List<AdaptiveItem> toCheck) {
     List result = [];
