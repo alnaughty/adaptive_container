@@ -11,14 +11,14 @@ class AdaptiveContainer extends StatelessWidget {
   final MainAxisAlignment mainAxisAlignment;
   AdaptiveContainer({required this.children, this.physics = const ClampingScrollPhysics(), this.crossAxisAlignment = CrossAxisAlignment.start, this.mainAxisAlignment = MainAxisAlignment.start});
 
-  List getContent(maxCount, List<AdaptiveItem> toCheck) {
-    List result = [];
+  List<List<AdaptiveItem>> getContent(maxCount, List<AdaptiveItem> toCheck) {
+    List<List<AdaptiveItem>> result = [];
     while (result.length < children.length/maxCount.floor()) {
-      List sub = [];
+      List<AdaptiveItem> sub = [];
       int temp = 0;
       while(sub.length < maxCount) {
         try{
-          sub.add(toCheck[temp].asWidget);
+          sub.add(toCheck[temp]);
           toCheck.removeAt(temp);
         }catch(e){
           break;
@@ -26,7 +26,6 @@ class AdaptiveContainer extends StatelessWidget {
       }
       result.add(sub);
     }
-    print(result);
     return result;
   }
 
@@ -39,8 +38,7 @@ class AdaptiveContainer extends StatelessWidget {
             if(constraint.maxWidth < 800) {
               maxChildCount = 1;
             }
-            List content = getContent(maxChildCount, List<AdaptiveItem>.from(children));
-            print(maxChildCount);
+            List<List<AdaptiveItem>> content = getContent(maxChildCount, List<AdaptiveItem>.from(children));
             return Container(
               width: double.infinity,
               child: Scrollbar(
@@ -56,11 +54,19 @@ class AdaptiveContainer extends StatelessWidget {
                             mainAxisAlignment: mainAxisAlignment,
                             children: [
                               for(var child in colList)...{
-                                Expanded(
-                                  child: Container(
-                                    child: child,
-                                  ),
-                                )
+                                if(constraint.maxWidth < 800)...{
+                                  Expanded(
+                                    child: child.asWidget,
+                                  )
+                                }else...{
+                                  if(child.width != null)...{
+                                    child.asWidget
+                                  }else...{
+                                    Expanded(
+                                      child: child.asWidget,
+                                    )
+                                  }
+                                }
                               }
                             ],
                           ),
