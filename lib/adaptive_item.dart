@@ -12,4 +12,5 @@ extension AdaptiveWidget on AdaptiveItem {
     child: content,
     color: bgColor,
   );
+
 }

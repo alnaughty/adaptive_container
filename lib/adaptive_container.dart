@@ -7,7 +7,9 @@ import 'package:flutter/material.dart';
 class AdaptiveContainer extends StatelessWidget {
   final List<AdaptiveItem> children;
   final ScrollPhysics physics;
-  AdaptiveContainer({required this.children, this.physics = const ClampingScrollPhysics()});
+  final CrossAxisAlignment crossAxisAlignment;
+  final MainAxisAlignment mainAxisAlignment;
+  AdaptiveContainer({required this.children, this.physics = const ClampingScrollPhysics(), this.crossAxisAlignment = CrossAxisAlignment.start, this.mainAxisAlignment = MainAxisAlignment.start});
 
   List getContent(maxCount, List<AdaptiveItem> toCheck) {
     List result = [];
@@ -50,6 +52,8 @@ class AdaptiveContainer extends StatelessWidget {
                         Container(
                           width: constraint.maxWidth,
                           child: Row(
+                            crossAxisAlignment: crossAxisAlignment,
+                            mainAxisAlignment: mainAxisAlignment,
                             children: [
                               for(var child in colList)...{
                                 Expanded(
