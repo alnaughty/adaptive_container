@@ -9,7 +9,8 @@ class AdaptiveContainer extends StatelessWidget {
   final ScrollPhysics physics;
   final CrossAxisAlignment crossAxisAlignment;
   final MainAxisAlignment mainAxisAlignment;
-  AdaptiveContainer({required this.children, this.physics = const ClampingScrollPhysics(), this.crossAxisAlignment = CrossAxisAlignment.start, this.mainAxisAlignment = MainAxisAlignment.start});
+  final AdapType? type;
+  AdaptiveContainer({this.type = AdapType.ADA_2,required this.children, this.physics = const ClampingScrollPhysics(), this.crossAxisAlignment = CrossAxisAlignment.start, this.mainAxisAlignment = MainAxisAlignment.start});
 
   List<List<AdaptiveItem>> getContent(maxCount, List<AdaptiveItem> toCheck) {
     List<List<AdaptiveItem>> result = [];
@@ -34,10 +35,27 @@ class AdaptiveContainer extends StatelessWidget {
     return LayoutBuilder(
         builder: (context, constraint) {
           if(children.length > 0){
-            int maxChildCount = 2;
-            if(constraint.maxWidth < 800) {
+            int maxChildCount = this.type!.count;
+            if(maxChildCount > 1){
+              if(constraint.maxWidth < 650) {
+                maxChildCount = 1;
+              }else{
+                if(constraint.maxWidth < 900) {
+                  maxChildCount = (maxChildCount/1.7).floor();
+                }else{
+                  if(constraint.maxWidth < 1200) {
+                    maxChildCount = (maxChildCount/2).floor();
+                  }else{
+                    if(constraint.maxWidth < 1600){
+                      maxChildCount = (maxChildCount/1.3).floor();
+                    }
+                  }
+                }
+              }
+            }else{
               maxChildCount = 1;
             }
+
             List<List<AdaptiveItem>> content = getContent(maxChildCount, List<AdaptiveItem>.from(children));
             return Container(
               width: _size.width,
