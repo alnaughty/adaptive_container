@@ -1,2 +1,2 @@
-## for the moment only accepts as 2 - 1 row(s)
-### further improvements to be expected
+# Adaptive Container
+- Flutter Package used mainly to have a bootstrap-like responsive UI behavior.
