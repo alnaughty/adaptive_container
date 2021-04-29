@@ -5,26 +5,30 @@ class AdaptiveItem {
   final double? width;
   final Widget? content;
   final Color? bgColor;
-  AdaptiveItem({this.height, this.content, this.bgColor = Colors.transparent, this.width});
-}
-extension AdaptiveWidget on AdaptiveItem {
-  Widget get asWidget => Container(
-    height: height,
-    width: width,
-    child: content,
-    color: bgColor,
-  );
+
+  AdaptiveItem(
+      {this.height,
+      this.content,
+      this.bgColor = Colors.transparent,
+      this.width});
 }
 
-enum AdapType {
-  ADA_2,
-  ADA_3,
-  ADA_4,
-  ADA_5
+// Extension to get the current item as widget
+extension AdaptiveWidget on AdaptiveItem {
+  Widget get asWidget => Container(
+        height: height,
+        width: width,
+        child: content,
+        color: bgColor,
+      );
 }
+
+// Adaptive Container Type enum for max length view
+enum AdapType { ADA_2, ADA_3, ADA_4, ADA_5 }
+
 extension AdapTypeExt on AdapType {
   int get count {
-    switch(this) {
+    switch (this) {
       case AdapType.ADA_2:
         return 2;
       case AdapType.ADA_3:
