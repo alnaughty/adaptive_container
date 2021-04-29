@@ -2,16 +2,16 @@
 - Flutter Package used mainly to have a bootstrap-like responsive UI behavior.
 
 ## Full Width View
-![alt text](https://github.com/alnaughty/adaptive_container/example/images/full_width.png?raw=true)
+![alt text](https://github.com/alnaughty/adaptive_container/images/full_width.png?raw=true)
 
 ## Adjusted width to < 1200
-![alt text](https://github.com/alnaughty/adaptive_container/example/images/4_width.png?raw=true)
+![alt text](https://github.com/alnaughty/adaptive_container/images/4_width.png?raw=true)
 
 ## Adjusted width to < 900
-![alt text](https://github.com/alnaughty/adaptive_container/example/images/3_width.png?raw=true)
+![alt text](https://github.com/alnaughty/adaptive_container/images/3_width.png?raw=true)
 
 ## Adjusted width to < 650
-![alt text](https://github.com/alnaughty/adaptive_container/example/images/mobile_view.png?raw=true)
+![alt text](https://github.com/alnaughty/adaptive_container/images/mobile_view.png?raw=true)
 
 ## How to use
 * Wrap your AdaptiveContainer to a container with dimensions 
