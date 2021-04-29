@@ -1,6 +1,6 @@
 name: adaptive_container
 description: Flutter Package used to achieve a bootstrap-like behavior in your flutter project (Web, Desktop, Mobile(Android, IOS)).
-version: 0.0.2
+version: 0.0.3
 #author: "Zeus Cajurao"
 homepage: https://github.com/alnaughty/adaptive_container
 

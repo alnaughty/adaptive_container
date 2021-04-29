@@ -1,3 +1,8 @@
+# 0.0.3
+
+* Add sample images on Readme.md
+* Modify example, based on the images.
+
 # 0.0.2
 
 * Update package documentation

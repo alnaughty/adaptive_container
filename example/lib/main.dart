@@ -29,44 +29,63 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-          height: MediaQuery.of(context).size.height,
+            height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             child: AdaptiveContainer(
-              type: AdapType.ADA_3,
+              type: AdapType.ADA_5,
               children: [
                 AdaptiveItem(
                     height: 200,
                     bgColor: Colors.blue,
                     content: Center(
-                      child: Text("TEST R 1",style: Theme.of(context).textTheme.headline4,),
-                    )
-                ),
+                      child: Text(
+                        "TEST R 1",
+                        style: Theme.of(context).textTheme.headline4,
+                      ),
+                    )),
                 AdaptiveItem(
                     height: 200,
                     bgColor: Colors.red,
                     content: Center(
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
-                        child: Text("TEST R 2",style: Theme.of(context).textTheme.headline4,),
+                        child: Text(
+                          "TEST R 2",
+                          style: Theme.of(context).textTheme.headline4,
+                        ),
                       ),
-                    )
-                ),
+                    )),
                 AdaptiveItem(
                     height: 200,
                     bgColor: Colors.yellow,
                     content: Center(
-                      child: Text("TEST R 3",style: Theme.of(context).textTheme.headline4,),
-                    )
-                ),
+                      child: Text(
+                        "TEST R 3",
+                        style: Theme.of(context).textTheme.headline4,
+                      ),
+                    )),
                 AdaptiveItem(
+                    height: 200,
                     bgColor: Colors.green,
                     content: Center(
-                      child: Text("TEST COL 3 R1",style: Theme.of(context).textTheme.headline4,),
-                    )
-                ),
+                      child: Text(
+                        "TEST R 4",
+                        style: Theme.of(context).textTheme.headline4,
+                      ),
+                    )),
+                AdaptiveItem(
+                    height: 200,
+                    bgColor: Colors.purple,
+                    content: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(
+                          "TEST R 5",
+                          style: Theme.of(context).textTheme.headline4,
+                        ),
+                      ),
+                    )),
               ],
-            )
-        )
-    );
+            )));
   }
 }
